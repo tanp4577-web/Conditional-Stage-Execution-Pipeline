@@ -6,8 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Update with your actual GitHub repository URL
-                git branch: 'main', url: ' https://github.com/tanp4577-web/Conditional-Stage-Execution-Pipeline.git'
+                git branch: 'main', url: 'https://github.com/tanp4577-web/Conditional-Stage-Execution-Pipeline.git'
             }
         }
         stage('Build') {
@@ -22,7 +21,7 @@ pipeline {
             }
             steps {
                 echo 'Running extra check: verifying greet() output format...'
-                bat 'python -c "from app::greet; print(greet(\'Student\'))"' // Or standard import
+                bat 'python -c "import app; print(app.greet(\'Student\'))"'
             }
         }
     }
